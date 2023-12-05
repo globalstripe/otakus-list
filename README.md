@@ -42,3 +42,33 @@ Datasource "db": MySQL database "otakulist" at "aws.connect.psdb.cloud"
 The database is already in sync with the Prisma schema.
 
 ✔ Generated Prisma Client (v5.6.0) to ./node_modules/@prisma/client in 430ms
+
+
+Server Actions:  Is no longer experiment in 14.0.3
+
+So this is no longer required in next.config.js
+
+module.exports = {
+  experimental: {
+    serverActions: true,
+  },
+};
+
+And also updated images.domain to images.remotePatterns
+
+const nextConfig = {
+  images: {
+    remotePatterns: [
+       {
+        protocol: "https",
+        hostname:  "cdn.myanimelist.net"
+       }
+    ],
+  },
+};
+
+And added sharp
+
+https://nextjs.org/docs/messages/sharp-missing-in-production
+
+# npm i sharp
