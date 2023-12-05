@@ -19,8 +19,26 @@ You need to add this to the end of your PlanetScale DB's connection String
 
 ?sslaccept=strict
 
-Remove anything else at the end of the string and just add that 
+Planet Scale Defaults to this
 
-Usually in you .env file
+?ssl={"rejectUnauthorized":true}'
+
+Remove that and just add ?sslaccept=strict
+
+In you .env file
 
 DATABASE_URL=
+
+Once that is setup run this from cli
+
+# npx prisma db push
+
+If all is OK you should see this
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": MySQL database "otakulist" at "aws.connect.psdb.cloud"
+
+The database is already in sync with the Prisma schema.
+
+✔ Generated Prisma Client (v5.6.0) to ./node_modules/@prisma/client in 430ms
