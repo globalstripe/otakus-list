@@ -84,7 +84,10 @@ const Card = ({
         </div>
         <form className={`flex justify-end`}>
           {addedToWatchList ? (
+
+<div className="tooltip tooltip-top" data-tip="This will execute a server action with a delete to prisma planetscale db">
             <button
+              data-tooltip-target="tooltip-default"
               className="btn btn-xs btn-outline gap-1"
               formAction={async () => {
                 "use server";
@@ -93,7 +96,10 @@ const Card = ({
             >
               <Minus /> watchlist
             </button>
+            </div>
+
           ) : (
+            <div className="tooltip tooltip-top" data-tip="This will execute a server action writing to prisma planetscale db">
             <button
               className="btn btn-xs btn-outline gap-1"
               formAction={async () => {
@@ -103,6 +109,10 @@ const Card = ({
             >
               <Plus /> watchlist
             </button>
+            </div>
+
+
+
           )}
         </form>
       </div>
